@@ -1,0 +1,5 @@
+{
+  "name": "Port Code Matcher Pro",
+  "description": "A high-performance tool for logistics professionals to automatically match port names with official 5-digit codes (UN/LOCODE), Chinese names, and country data using Gemini AI.",
+  "requestFramePermissions": []
+}
