@@ -23,3 +23,9 @@ export interface GeminiPortResponse {
   remarks: string;
   sources?: PortSource[];
 }
+
+export interface GeminiAppConfig {
+  apiKey: string;
+  baseUrl: string;
+  model: string;
+}
