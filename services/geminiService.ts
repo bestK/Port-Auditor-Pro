@@ -3,10 +3,22 @@ import { GoogleGenAI, Type } from "@google/genai";
 import { GeminiPortResponse, PortData, PortSource, GeminiAppConfig } from "../types";
 
 /**
+ * Safely retrieves the default API Key from environment variables.
+ */
+const getDefaultApiKey = () => {
+  try {
+    // In some local environments, process might not be defined
+    return typeof process !== 'undefined' ? process.env.API_KEY || '' : '';
+  } catch {
+    return '';
+  }
+};
+
+/**
  * Creates a dynamic AI client based on user-defined configuration.
  */
 const getAIClient = (config: GeminiAppConfig) => {
-  const apiKey = config.apiKey || process.env.API_KEY || '';
+  const apiKey = config.apiKey || getDefaultApiKey();
   const clientConfig: { apiKey: string; baseUrl?: string } = { apiKey };
   
   if (config.baseUrl && config.baseUrl.trim() !== '') {
